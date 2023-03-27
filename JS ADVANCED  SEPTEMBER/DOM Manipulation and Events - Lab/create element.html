@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movie List</h1>
+    <ul id="movie-list">
+        <li id="first-li">The Matrix</li>
+
+    </ul>
+    <script>
+        // Create a  NEW DOM ELEMENT, but in MEMORY / NOT in DOM TREE 
+        let newLiElement = document.createElement('li');
+        newLiElement.innerHTML = '<p>Man of Steel</p>';
+        
+        newLiElement.textContent = 'Man of Steel';
+        console.log(newLiElement);
+        // copy / cloned DOM element
+
+        let liElement =  document.getElementById('first-li');
+
+        let newLiCopied = liElement.cloneNode(true);
+
+        console.log(newLiCopied);
+
+        // Appen child - append elementLi to UL;
+
+        let ulElement = document.getElementById('movie-list');
+
+        ulElement.appendChild(newLiElement);
+        ulElement.appendChild(newLiCopied);
+
+
+
+
+
+    </script>
+</body>
+</html>

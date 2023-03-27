@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is DOM</title>
+</head>
+<body>
+    <h1>My First Dom Training</h1>
+
+        <ul>
+            <li>Example 1</li>
+            <li>Example 2</li>
+            <li>Example 3</li>
+            <li>Example 4</li>
+
+        </ul>
+
+        <a href="/About">Click Here</a>
+
+        <form action="#">
+            <div>
+                <label for="user" >Username</label>
+                <input type="text" id="user"/>
+                <label for="pass">Password</label>
+                <input type="text" id="pass"/>
+           </div>
+            
+        </form>
+        <button type="submit" onclick="userPass()">Click me!</button>
+        <input type="text" id="result"/>
+        <div id="paragaraph1">
+
+        </div>
+
+        <!--JS ADD INTERNAL-->
+        <script>
+            // get Element by its tagName / method return array.
+            let h1Element = document.getElementsByTagName('h1')[0];
+            // print Element but returns element with open and closed tags.
+            console.log(h1Element);
+            // print not Element, but text inside element.
+            console.log(h1Element.textContent);
+            // change value of text in the element;
+
+            h1Element.textContent += '!!!';
+            // REMOVE ELEMENT
+            h1Element.textContent = '';
+            h1Element.textContent = 'My First Dom Training!!!'
+
+            let paragrah1 = document.getElementById('paragaraph1');
+            // with innerHTML insert <p>
+            paragrah1.innerHTML = '<p>khdjkscfjdsahcashclksahdklhsakdhklsakksjklsjalkasjd</p>';
+            // with textContent insert only text.
+            paragrah1.textContent = '<p>fhcjksdbfjkdhsfkjhdsf</p>';
+            
+            function userName(){
+                let userName = document.getElementById('user').value
+                if(userName == 'Pesho'){
+                    console.log('success');
+                }
+                else{ 
+                    console.log('failes');
+                }
+            }
+       
+         
+        </script>
+        <!--JS ADD EXTARNAL-->
+        <script src="demo.js"></script>
+</body>
+</html>

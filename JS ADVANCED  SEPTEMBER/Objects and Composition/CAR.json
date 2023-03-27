@@ -1,0 +1,31 @@
+[
+    
+{
+    "model": "BMW",
+    "year": 2010,
+    "facelift": true,
+   
+    "owner": {
+        "name": "Ivan",
+        "age": 30,
+        "hobbies": [
+            "sport",
+            "cinema",
+            "music"
+
+        ]
+
+    }
+
+
+
+},
+
+{
+    "model": "AUDI",
+    "year": 2020,
+    "facelift": true
+
+}
+
+]

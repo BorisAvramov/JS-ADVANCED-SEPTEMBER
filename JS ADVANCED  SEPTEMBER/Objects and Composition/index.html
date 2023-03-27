@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FromJSONToHTMLTable</title>
+    <style>
+        table,th{
+            border: groove;
+            border-collapse: collapse;
+        }
+        td{
+            border: 1px solid black;
+        }
+        td,th{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+    </div>
+    <script>
+        function fromJSONToHTMLTable(input){
+            let arrayParsedFromJson = JSON.parse(input);
+
+    let outputArr = [];
+    outputArr.push('<table>');
+
+    outputArr.push(makeKeyRow(arrayParsedFromJson));
+    arrayParsedFromJson.forEach( obj => outputArr.push(makeValueRow(obj)) );
+
+    outputArr.push('</table>');
+
+    return outputArr.join('\n');
+
+
+    function makeKeyRow(arrayParsedFromJson){
+
+        let stringKeyRow = '<tr>';
+
+        for (const curObject of arrayParsedFromJson) {
+            
+            for (const key in curObject) {
+                stringKeyRow += `<th>${escapeHTML(key)}</th>`;
+            }
+            break;
+        }
+      
+       stringKeyRow += '</tr>'
+
+       return stringKeyRow;
+       
+
+    }
+    function makeValueRow(obj){
+
+        let stringValueRow = '<tr>';
+        for (const key in obj) {
+          
+            stringValueRow += `<td>${escapeHTML(obj[key])}</td>`;
+        }
+
+        stringValueRow += '</tr>'
+        return stringValueRow;
+
+    }
+
+    function escapeHTML(value) {
+        return value
+          .toString()
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+        }
+        window.onload = function(){
+            let container = document.getElementById('wrapper');
+            container.innerHTML = fromJSONToHTMLTable(['[{"Name":"Stamat","Price":5.5},{"Name":"Rumen","Price":6}]']);
+        };
+    </script>
+</body>
+</html>

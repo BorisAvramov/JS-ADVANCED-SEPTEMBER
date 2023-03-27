@@ -1,0 +1,21 @@
+let car = {
+    model: 'BMW',
+    year: 2010,
+    facelift: true,
+    horn:  function (){ 
+
+        console.log(`${this.model}: beep beep!`);
+    },
+   
+    
+}
+// WITH JSON
+let copyCar = JSON.parse(JSON.stringify(car)); 
+
+car.year = 2022;
+
+console.log(copyCar.year);
+console.log(car.year);
+
+
+     
